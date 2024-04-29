@@ -1,0 +1,388 @@
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root {
+    --fg: #17181c;
+    --primary: #255ff4;
+    --primary-hover: #255ff4;
+    --secondary: #8525f4;
+    --trans-dur: 0.3s;
+    --trans-timing: cubic-bezier(0.7,0,0.3,1);
+    font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+  }
+  
+  body,
+  nav a {
+    color: var(--fg);
+    transition: background-color var(--trans-dur), color var(--trans-dur);
+  }
+  
+  body {
+    background-image: linear-gradient(45deg, var(--primary), var(--secondary));
+    font: 1em/1.5 "DM Sans", sans-serif;
+    height: 100vh;
+    min-height: 24em;
+  }
+  
+  .app,
+  .card,
+  .nav {
+    padding: 0.75em;
+    transition: background-color var(--trans-dur), box-shadow var(--trans-dur);
+    width: 100%;
+  }
+  
+  .app,
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .app {
+    border-radius: 0 0 1.75em 1.75em;
+    box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: auto;
+    max-width: 20em;
+    height: 22em;
+    perspective: 20em;
+    position: relative;
+    top: -2em;
+  }
+  
+  .cards {
+    padding: 0 0.5em;
+  }
+  
+  .card {
+    border-radius: 1.25em;
+    min-height: 6em;
+    margin-bottom: 0.75em;
+    opacity: 0;
+  }
+  .card--fly-out {
+    animation: fadeInFlyOut 1s var(--trans-timing) forwards;
+  }
+  .card--fly-out:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .card--fly-out:nth-child(2) {
+    animation-delay: 0.05s;
+  }
+  
+  .icon1-1 {
+    transform-origin: 12px 6px;
+  }
+  
+  .icon3-1 {
+    transform-origin: 12px 1px;
+  }
+  
+  .icon4-3 {
+    transform-origin: 12px 10px;
+  }
+  
+  .icon5-1 {
+    transform-origin: 12px 20px;
+  }
+  
+  .nav {
+    background-color: #e3e4e8;
+    border-radius: 1em;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.3);
+    transform-origin: 50% 133%;
+  }
+  .nav--tilt1 {
+    animation: tilt1 0.6s ease-in-out;
+  }
+  .nav--tilt2 {
+    animation: tilt2 0.6s ease-in-out;
+  }
+  .nav--tilt3 {
+    animation: tilt3 0.6s ease-in-out;
+  }
+  .nav--tilt4 {
+    animation: tilt4 0.6s ease-in-out;
+  }
+  .nav--tilt5 {
+    animation: tilt5 0.6s ease-in-out;
+  }
+  .nav__items {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+  .nav__item-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    width: 3em;
+    height: 3em;
+    text-decoration: none;
+  }
+  .nav__item-btn:focus, .nav__item-btn:hover, .nav__item-btn[aria-describedby=current] {
+    color: var(--primary-hover);
+  }
+  .nav__item-btn:focus {
+    outline: transparent;
+  }
+  .nav__item-icon {
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+    width: 1.5em;
+    height: 1.5em;
+    transition: transform var(--trans-dur) var(--trans-timing);
+  }
+  .nav__item-icon g,
+  .nav__item-icon path,
+  .nav__item-icon rect {
+    animation-duration: calc(var(--trans-dur) * 3);
+    animation-timing-function: var(--trans-timing);
+  }
+  .nav__item-text {
+    display: block;
+    font-size: 0.6em;
+    line-height: 1.25;
+    opacity: 0;
+    text-align: center;
+    transition: opacity var(--trans-dur) var(--trans-timing);
+  }
+  .nav__item-btn:focus .nav__item-icon, .nav__item-btn:hover .nav__item-icon {
+    transform: translateY(-0.5em);
+  }
+  .nav__item-btn:focus .nav__item-text, .nav__item-btn:hover .nav__item-text {
+    animation: fadeFlyIn calc(var(--trans-dur) * 1.5) var(--trans-timing);
+    opacity: 1;
+  }
+  .nav__item-btn:focus .icon1-1, .nav__item-btn:hover .icon1-1 {
+    animation-name: icon1-1;
+  }
+  .nav__item-btn:focus .icon2-1, .nav__item-btn:hover .icon2-1 {
+    animation-name: icon2-1;
+  }
+  .nav__item-btn:focus .icon2-2, .nav__item-btn:hover .icon2-2 {
+    animation-name: icon2-2;
+  }
+  .nav__item-btn:focus .icon2-3, .nav__item-btn:hover .icon2-3 {
+    animation-name: icon2-3;
+  }
+  .nav__item-btn:focus .icon2-4, .nav__item-btn:hover .icon2-4 {
+    animation-name: icon2-4;
+  }
+  .nav__item-btn:focus .icon3-1, .nav__item-btn:hover .icon3-1 {
+    animation-name: icon3-1;
+  }
+  .nav__item-btn:focus .icon4-1, .nav__item-btn:hover .icon4-1 {
+    animation-name: icon4-1;
+  }
+  .nav__item-btn:focus .icon4-2, .nav__item-btn:hover .icon4-2 {
+    animation-name: icon4-2;
+  }
+  .nav__item-btn:focus .icon4-3, .nav__item-btn:hover .icon4-3 {
+    animation-name: icon4-3;
+  }
+  .nav__item-btn:focus .icon5-1, .nav__item-btn:hover .icon5-1 {
+    animation-name: icon5-1;
+  }
+  
+  /* `:focus-visible` support */
+  @supports selector(:focus-visible) {
+    .nav__item-btn:focus {
+      color: currentColor;
+    }
+    .nav__item-btn:focus-visible, .nav__item-btn:hover, .nav__item-btn[aria-describedby=current] {
+      color: var(--primary-hover);
+    }
+    .nav__item-btn:focus .nav__item-icon {
+      transform: translateY(0);
+    }
+    .nav__item-btn:focus .nav__item-text {
+      opacity: 0;
+    }
+    .nav__item-btn:focus-visible .nav__item-icon, .nav__item-btn:hover .nav__item-icon {
+      transform: translateY(-0.5em);
+    }
+    .nav__item-btn:focus-visible .nav__item-text, .nav__item-btn:hover .nav__item-text {
+      opacity: 1;
+    }
+  }
+  /* Dark theme */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fg: #e3e4e8;
+      --primary-hover: #5583f6;
+    }
+  
+    .app,
+  .card {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  
+    .app {
+      box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.5);
+    }
+  
+    .nav {
+      background-color: #17181c;
+    }
+  }
+  /* Animations */
+  @keyframes fadeFlyIn {
+    from, 33.3% {
+      opacity: 0;
+      transform: translateY(0.5em);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeInFlyOut {
+    from {
+      opacity: 0;
+      transform: translateY(0) scale(0.9);
+    }
+    35% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(-250%) scale(1);
+    }
+  }
+  @keyframes icon1-1 {
+    from, to {
+      transform: rotate(0);
+    }
+    33% {
+      transform: rotate(30deg);
+    }
+    67% {
+      transform: rotate(-30deg);
+    }
+  }
+  @keyframes icon2-1 {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(13px, 0);
+    }
+  }
+  @keyframes icon2-2 {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(0, 13px);
+    }
+  }
+  @keyframes icon2-3 {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(0, -13px);
+    }
+  }
+  @keyframes icon2-4 {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(-13px, 0);
+    }
+  }
+  @keyframes icon3-1 {
+    from, to {
+      transform: rotateX(0);
+    }
+    50% {
+      transform: rotateX(-135deg);
+    }
+  }
+  @keyframes icon4-1 {
+    from, to {
+      height: 0;
+      transform: translateY(0);
+    }
+    50% {
+      height: 5px;
+      transform: translateY(-2px);
+    }
+  }
+  @keyframes icon4-2 {
+    from, to {
+      height: 16px;
+      transform: translateY(0);
+    }
+    50% {
+      height: 15px;
+      transform: translateY(-2px);
+    }
+  }
+  @keyframes icon4-3 {
+    from, to {
+      transform: rotateX(0);
+    }
+    50% {
+      transform: rotateX(-130deg);
+    }
+  }
+  @keyframes icon5-1 {
+    from, to {
+      transform: rotate(0);
+    }
+    50% {
+      transform: rotate(-30deg);
+    }
+  }
+  @keyframes tilt1 {
+    from, to {
+      transform: rotateY(0);
+    }
+    50% {
+      transform: rotateY(-4deg);
+    }
+  }
+  @keyframes tilt2 {
+    from, to {
+      transform: rotateX(0) rotateY(0);
+    }
+    50% {
+      transform: rotateX(-3deg) rotateY(-3deg);
+    }
+  }
+  @keyframes tilt3 {
+    from, to {
+      transform: rotateX(0);
+    }
+    50% {
+      transform: rotateX(8deg);
+    }
+  }
+  @keyframes tilt4 {
+    from, to {
+      transform: rotateX(0) rotateY(0);
+    }
+    50% {
+      transform: rotateX(-3deg) rotateY(3deg);
+    }
+  }
+  @keyframes tilt5 {
+    from, to {
+      transform: rotateY(0);
+    }
+    50% {
+      transform: rotateY(4deg);
+    }
+  }

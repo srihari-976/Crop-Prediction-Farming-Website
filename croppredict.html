@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction Project</title>
+    <link rel="stylesheet" type="text/css" href="/crop.css">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Prediction Project</h1>
+        <div class="filters">
+            <label for="soil-select">Select Soil Type:</label>
+            <select id="soil-select">
+                <option value="Red">Red Soil</option>
+                <option value="Black">Black Soil</option>
+                <option value="Laterite">Laterite Soil</option>
+                <option value="Alluvial">Alluvial Soil</option>
+                <!-- Add more soil type options as needed -->
+            </select>
+
+            <label for="season-select">Select Season:</label>
+            <select id="season-select">
+                <option value="Rainy">Rainy Season</option>
+                <option value="Summer">Summer Season</option>
+                <option value="Spring">Spring Season</option>
+                <option value="Winter">Winter Season</option>
+                <!-- Add more season options as needed -->
+            </select>
+        </div>
+        <input type="text" id="search-bar" placeholder="Search Crop">
+            <button id="search-btn">Search</button>
+        </div>
+        <div class="crop-gallery">
+            <!-- Crop photos will be displayed here -->
+        </div>
+    </div>
+    <script src="/crop.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
+</body>
+</html>

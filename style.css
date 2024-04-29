@@ -1,0 +1,337 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Patrick Hand', cursive;
+}
+
+body{
+	background-image: url(/back1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+header {
+	width: 100%;
+	height: 100vh;
+}
+
+nav {
+	width: 100%;
+	height: 15vh;
+	background: rgba(0,0,0,0.2);
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+div img {
+	width: 200px;
+	height: 200px;
+	border: 2px solid;
+	border-radius: 13px;
+	box-shadow: 4px 7px 7px 0px;
+	cursor: pointer;
+	margin: 10px;
+	transition: 400ms;
+}
+
+div img:hover {
+	box-shadow: 4px 7px 7px 0px;
+	transform: scale(1.03);
+}
+
+.charts {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 10px;
+	margin-top: 20px;
+}
+
+.charts-card {
+	background-color: rgba(255, 255, 255, 0.5);
+	margin-bottom: 20px;
+	padding: 25px;
+	box-sizing: border-box;
+	-webkit-column-break-inside: avoid;
+	border-radius: 10px;
+	box-shadow: 0 6px 7px -4px rgba(0,0,0,0.2);
+	backdrop-filter: blur(5px);
+}
+
+.charts-card:hover{
+	transform: scale(1.05);
+}
+
+.chart-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color:darkred;
+}
+
+.container p{
+color: darkblue;
+}
+
+.dropbtn {
+	background-color: #04aa6d;
+	color: white;
+	padding: 10px 10px;
+	margin: 15px;
+	font-size: 20px;
+	border: none;
+}
+
+.crops {
+	height: 30%;
+	color: #000;
+	padding: 20px;
+}
+
+.crops:hover {
+	color: white;
+}
+
+.dropdown {
+	display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+	position: relative;
+	display: flex;
+	background-color: rgb(0 0 0 / 40%);
+	min-width: 10px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	padding-right: 10px;
+}
+
+.dropdown-content a {
+	display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	margin: 5px;
+	padding: 20px;
+}
+
+.dropdown-content button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content button:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-content a:hover {
+	background-color: rgb(39,126,47);
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: rgba(36,192,49,0.959);
+}
+
+nav .logo {
+	width: 25%;
+	text-align: center;
+}
+
+nav .menu {
+	font-size: 20px;
+	width: 40%;
+	display: flex;
+	justify-content: space-around;
+}
+
+nav .menu a {
+	width: 25%;
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+nav .dropdown a {
+	width: 100%;
+	text-decoration: none;
+	color: rgb(249,253,1);
+	font-weight: bold;
+}
+
+main {
+	width: 100%;
+	height: 85vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
+}
+
+section h3 {
+	font-size: 35px;
+	font-weight: 200;
+	letter-spacing: 3px;
+	text-shadow: 1px 1px 2px black;
+}
+
+section h1 {
+	margin: 30px 0 20px 0;
+	font-size: 55px;
+	font-weight: 700;
+	text-shadow: 2px 1px 5px black;
+	text-transform: uppercase;
+}
+
+section p {
+	font-size: 25px;
+	word-spacing: 2px;
+	margin-bottom: 25px;
+	text-shadow: 1px 1px 1px black;
+}
+
+section a {
+	padding: 12px 30px;
+	border-radius: 4px;
+	outline: none;
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight: 800;
+	text-decoration: none;
+	letter-spacing: 1px;
+	transition: all 0.5s ease;
+}
+
+.change_content:after {
+	content: "";
+	animation: changetext 10s infinite linear;
+	color: #ffd209;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: inherit;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	font: 16px/1.5 sans-serif;
+}
+
+.btn-group {
+	text-align: center;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: pink;
+	font-size: 20px;
+	color: white;
+	padding: 10px 30px;
+	cursor: pointer;
+}
+
+#main1 {
+	color: #ffd304;
+}
+
+a {
+	background-image: linear-gradient( to right,#e7ecee,#edf0f1 50%,#f4f0f0 50% );
+	background-size: 200% 100%;
+	background-position: -100%;
+	display: inline-block;
+	padding: 5px 0;
+	position: relative;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: all 0.3s ease-in-out;
+}
+
+a:before {
+	content: '';
+	background: #eaeff0;
+	display: block;
+	position: absolute;
+	bottom: -3px;
+	left: 0;
+	width: 0;
+	height: 3px;
+	transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+	background-position: 0;
+}
+
+a:hover::before {
+	width: 100%;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: 27px;
+	font-weight: 700;
+	height: 100vh;
+	place-items: center;
+}
+
+@keyframes changetext {
+	0% {
+		content: "healthful";
+	}
+
+	25% {
+		content: "useful";
+	}
+
+	50% {
+		content: "nobel";
+	}
+}
