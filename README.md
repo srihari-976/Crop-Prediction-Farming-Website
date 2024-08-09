@@ -5,6 +5,13 @@
 
 Welcome to Farming Companion! This project is aimed at providing farmers with valuable information and tools to enhance their agricultural practices.
 
+## Deployed Application
+
+You can view the live version of the project at the following link:
+
+[Live Application](https://crop-prediction-farming-website.vercel.app/)
+
+
 ## Overview
 
 Farming Companion is a web-based application designed to assist farmers in making informed decisions about crop selection, disease management, fertilizer usage, and government schemes. The application offers features such as crop prediction, disease and fertilizer information, and access to government schemes relevant to farming.
