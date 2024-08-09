@@ -7,9 +7,10 @@ Welcome to Farming Companion! This project is aimed at providing farmers with va
 
 ## Deployed Application
 
-You can view the live version of the project at the following link:
+🚀 **Check out the live version of Farming Companion!** 🚀
 
-[Live Application](https://crop-prediction-farming-website.vercel.app/)
+[![Live Application](https://img.shields.io/badge/Live%20Application-Click%20Here-brightgreen)](https://crop-prediction-farming-website.vercel.app/)
+
 
 
 ## Overview
