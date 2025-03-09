@@ -1,0 +1,165 @@
+/* Prediction Intro */
+.prediction-intro {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, rgba(22, 140, 66, 0.95), rgba(13, 88, 39, 0.95));
+    color: var(--text-light);
+}
+
+.prediction-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Prediction Form */
+.prediction-form {
+    margin-bottom: 2rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-group small {
+    color: #666;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Prediction Result */
+.prediction-result {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.result-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.recommended-crop {
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(22, 140, 66, 0.1), rgba(13, 88, 39, 0.1));
+    border-radius: 10px;
+}
+
+.recommended-crop i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.recommended-crop h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.crop-details {
+    text-align: left;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+}
+
+.crop-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Tips Section */
+.tips {
+    text-align: center;
+}
+
+.tips h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.tip {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.tip:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.tip i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tip h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.prediction-result.show {
+    display: block !important;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .button {
+        width: 100%;
+    }
+
+    .result-content {
+        grid-template-columns: 1fr;
+    }
+
+    .prediction-intro h2 {
+        font-size: 2rem;
+    }
+} 

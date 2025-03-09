@@ -1,0 +1,242 @@
+/* Schemes Intro */
+.schemes-intro {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, rgba(22, 140, 66, 0.95), rgba(13, 88, 39, 0.95));
+    color: var(--text-light);
+}
+
+.schemes-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Search Section */
+.schemes-search {
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Schemes Grid */
+.schemes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.scheme-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.scheme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.scheme-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.scheme-header i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.scheme-header h3 {
+    font-size: 1.5rem;
+}
+
+.scheme-content {
+    padding: 1.5rem;
+}
+
+.scheme-description {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.scheme-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.scheme-details ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.scheme-details li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.scheme-details li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Application Guide */
+.application-guide {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.application-guide h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.step {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: bold;
+}
+
+.step h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Support */
+.contact-support {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-support h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-options {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 25px;
+    transition: var(--transition);
+}
+
+.contact-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scheme-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box .button {
+        width: 100%;
+    }
+
+    .filter-options {
+        justify-content: center;
+    }
+
+    .schemes-intro h2 {
+        font-size: 2rem;
+    }
+
+    .contact-options {
+        flex-direction: column;
+    }
+
+    .contact-button {
+        width: 100%;
+        justify-content: center;
+    }
+} 

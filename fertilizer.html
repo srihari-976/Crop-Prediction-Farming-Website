@@ -1,251 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<style type="text/css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Guide - KRUSHI</title>
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./fertilizer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1 id="main1">KRUSHI</h1>
+            </div>
+            <div class="menu">
+                <a href="./index.html">Home</a>
+                <a href="./croppredict.html">Crop Prediction</a>
+                <a href="./weatherhtml.html">Weather</a>
+                <a href="./fertilizer.html">Fertilizers</a>
+                <a href="./govt.html">Government Schemes</a>
+                <a href="./login.html">Login</a>
+            </div>
+        </nav>
+    </header>
 
-		.header {
-		  overflow: hidden;
-		  background-color: #10151b;
-		  padding: 10px 30px ;
-		  font-size: 20px;
-		}
-		
-		.header a {
-		  float: left;
-		  color: white;
-		  text-align: center;
-		  padding: 12px;
-		  text-decoration: none;
-		  font-size: 18px; 
-		  line-height: 25px;
-		  border-radius: 4px;
-		}
-		
-		.header a.logo {
-		  font-size: 25px;
-		  font-weight: bold;
-		}
-		.header a.logo:hover {
-		  background-color: black;
-		}
-		
-		.header a:hover {
-		  background-color: rgb(86, 246, 11);
-		  color: black;
-		}
-		
-		.header a.active {
-		  background-color: dodgerblue;
-		  color: white;
-		}
-		
-		.header-right {
-		  float: right;
-		}
-		.subnav {
-		  float: left;
-		  overflow: hidden;
-		  padding: 12px;
-		  text-decoration: none;
-		  font-size: 18px; 
-		  line-height: 25px;
-		  border-radius: 4px;
-		}
-		
-		.subnav .subnavbtn {
-		  border: none;
-		  outline: none;
-		  color: white;
-		
-		  background-color: inherit;
-		  font-family: inherit;
-		  margin: 0;
-		}
-		
-		
-		.subnav-content {
-		  display: none;
-		  position: absolute;
-		
-		  background-color:#10151b;
-		  z-index: 1;
-		}
-		
-		.subnav-content a {
-		  float: left;
-		  color: white;
-		  text-decoration: none;
-		}
-		
-		.subnav-content a:hover {
-		  background-color: rgb(6, 240, 26);
-		  color: black;
-		}
-		
-		.subnav:hover .subnav-content {
-		  display: block;
-		}
-</style>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fertilizer</title>
-    <link href="/bootstrap.min.css" rel="stylesheet">
-    <link href="/global.css" rel="stylesheet">
-	<link href="/blog.css" rel="stylesheet">
-	 <link rel="stylesheet" type="text/css" href="/font-awesome.min.css" />
-	 <link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet">
-     <script src="seed/fertilizer/js/jquery-2.1.1.min.js"></script>
-     <script src="seed/fertilizer/js/bootstrap.min.js"></script>
+    <main>
+        <div class="container">
+            <section class="fertilizer-intro card">
+                <h2>Fertilizer Guide</h2>
+                <p>Learn about different types of fertilizers and their optimal usage for better crop yield.</p>
+            </section>
 
-  </head>
+            <section class="fertilizer-search card">
+                <div class="search-box">
+                    <input type="text" id="fertilizerSearch" class="form-control" placeholder="Search fertilizers...">
+                    <button class="button">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="nitrogen">Nitrogen</button>
+                    <button class="filter-btn" data-filter="phosphorus">Phosphorus</button>
+                    <button class="filter-btn" data-filter="potassium">Potassium</button>
+                    <button class="filter-btn" data-filter="organic">Organic</button>
+                </div>
+            </section>
 
-<body style="background-color: aquamarine;">
+            <section class="fertilizer-grid">
+                <div class="fertilizer-card" data-category="nitrogen">
+                    <div class="card-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Urea</h3>
+                        <p class="nutrient">Nitrogen (N): 46%</p>
+                        <p>Best for leafy vegetables and promoting vegetative growth.</p>
+                        <div class="usage-info">
+                            <h4>Usage Guidelines</h4>
+                            <ul>
+                                <li>Apply 2-3 weeks before planting</li>
+                                <li>Keep away from plant stems</li>
+                                <li>Water thoroughly after application</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="fertilizer-card" data-category="phosphorus">
+                    <div class="card-image">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Triple Superphosphate</h3>
+                        <p class="nutrient">Phosphorus (P): 46%</p>
+                        <p>Excellent for root development and flowering.</p>
+                        <div class="usage-info">
+                            <h4>Usage Guidelines</h4>
+                            <ul>
+                                <li>Mix with soil before planting</li>
+                                <li>Apply near root zone</li>
+                                <li>Ideal for acidic soils</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-<header>
-<div class="header" style="background-color: rgb(80, 230, 105);">
-	 <a href="/index.html" class="logo"><img style="height: 80px;" src="krushi logo.webp" alt="logo"></a>
-	 <br>
-	  <div class="header-right">
-	   <div class="subnav">
-		   <button style="font-size: 25px;" class="subnavbtn">Weather<i class="#"></i></button>
-		   <div class="subnav-content">
-		   <li><a style="font-size: 25px;" href="/index.html">Search</a></li>
-		   <li><a style="font-size: 25px;" href="/wheather.html">Your Current Location</a></li>
-		   </div>
-	   </div>
-	   <a style="font-size: 25px;" href="/html/govt.html">Goverment Schemes</a>   
-	   <div class="subnav">
-		<button style="font-size: 25px;" class="subnavbtn">Tech Knowledge<i class="#"></i></button>
-		<div class="subnav-content">
-		<li><a href="/tech.html">Solar Panel</a></li>
-		<li><a href="/tech.html">Modern Day Tech</a></li>
-		</div>
-	</div>
-	   <a style="font-size: 25px;" href="/feedback.html">Feedback</a>
-	   </div>
-</div>
+                <div class="fertilizer-card" data-category="potassium">
+                    <div class="card-image">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Potassium Chloride</h3>
+                        <p class="nutrient">Potassium (K): 60%</p>
+                        <p>Improves fruit quality and disease resistance.</p>
+                        <div class="usage-info">
+                            <h4>Usage Guidelines</h4>
+                            <ul>
+                                <li>Apply during fruiting stage</li>
+                                <li>Avoid in saline soils</li>
+                                <li>Water well after application</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-</header>
+                <div class="fertilizer-card" data-category="organic">
+                    <div class="card-image">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Compost</h3>
+                        <p class="nutrient">Organic Matter: Rich in NPK</p>
+                        <p>Natural soil enrichment and sustainable farming.</p>
+                        <div class="usage-info">
+                            <h4>Usage Guidelines</h4>
+                            <ul>
+                                <li>Mix with soil before planting</li>
+                                <li>Use as mulch</li>
+                                <li>Apply every growing season</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <section class="fertilizer-tips card">
+                <h3>Best Practices</h3>
+                <div class="tips-grid">
+                    <div class="tip">
+                        <i class="fas fa-clock"></i>
+                        <h4>Timing</h4>
+                        <p>Apply fertilizers early morning or late evening for best results.</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-tint"></i>
+                        <h4>Moisture</h4>
+                        <p>Ensure proper soil moisture before applying fertilizers.</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-balance-scale"></i>
+                        <h4>Quantity</h4>
+                        <p>Follow recommended dosage to avoid over-fertilization.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-
-	<div class="top"  >
-<img src="fertilizerlogo.jpg" alt="fertilizer" height=700px width=1450px>
-
-
-
-</div>
-<div class="centered">
-	<h1 style="color:white";>Fertilizer Information</h1>
-	 </div>
-
-
-<div class ="centered2">
-<p align="justify">A fertilizer is any material of natural or synthetic origin that is applied to soil or to plant tissues to supply plant nutrients. Fertilizers may be distinct from liming materials or other non-nutrient soil amendments. Many sources of fertilizer exist, both natural and industrially produced.Fertilization focuses on three main macro nutrients: Nitrogen (N), Phosphorus (P), and Potassium (K) with occasional addition of supplements like rock dust for micronutrients.</p>
-</div>
-<div class="header">
-
-
-
-<section id="blog">
- <div class="container">
-  <div class="row">
-    <div class="col-sm-12 space_all">
-	 <div class="blog_1 mgt clearfix">
-	  <div class="col-sm-4 clearfix">
-	   <div class="blog_home1i clearfix">
-	    <div class="grid clearfix">
-		  <figure class="effect-jazz">
-			<a href="/detail.html"><img src="nitrogenous fertilizer.jpeg" height="270" width="400" class="iw mgt" alt="img25"></a>
-		  </figure>
-	  </div>
-		<div class="blog_home1il clearfix">
-          <h6 class="mgt"><span class="date">March</span> <span class="year">2021</span></h6>	
-		</div>
-	  </div>
-	  </div>
-	  <div class="col-sm-8 clearfix">
-	   <div class="blog_1r">
-	    <h3 class="mgt"><a href="/detail.html">Nitrogen Fertilizers</a></h3>
-		
-		<p>Nitrogen fertilizers are made from ammonia (NH3) produced by the Haber-Bosch process. In this energy-intensive process, natural gas (CH4) usually supplies the hydrogen, and the nitrogen (N2) is derived from the air. This ammonia is used as a feedstock for all other nitrogen fertilizers, such as anhydrous ammonium nitrate (NH4NO3) and urea (CO(NH2)2).Deposits of sodium nitrate (NaNO3) (Chilean saltpeter) are also found in the Atacama desert in Chile and was one of the original (1830) nitrogen-rich fertilizers used.It is still mined for fertilizer. Nitrates are also produced from ammonia by the Ostwald process.</p>
-		<h5><a href="/detail.html">READ MORE <i class="fa fa-angle-double-right"></i></a></h5>
-
-	   </div>
-	  </div>
-	 </div>
-     <br> <br>
-	 <div class="blog_1 clearfix">
-	  <div class="col-sm-4 clearfix">
-	   <div class="blog_home1i clearfix">
-	    <div class="grid clearfix">
-		  <figure class="effect-jazz">
-			<a href="/detail2.html"><img src="phosphate fertilizer.jpg" height="270" width="400" class="iw mgt" alt="img25"></a>
-		  </figure>
-	  </div>
-		<div class="blog_home1il clearfix">
-          <h6 class="mgt"><span class="date">April</span> <span class="year">2021</span></h6>	
-		</div>
-	  </div>
-	  </div>
-	  <div class="col-sm-8 clearfix">
-	   <div class="blog_1r">
-	    <h3 class="mgt"><a href="detail2.html">Phosphate Fertilizers</a></h3>
-		<p>Phosphate fertilizers are obtained by extraction from phosphate rock, which contains two principal phosphorus-containing minerals, fluorapatite Ca5(PO4)3F (CFA) and hydroxyapatite Ca5(PO4)3OH. These minerals are converted into water-soluble phosphate salts by treatment with sulfuric (H2SO4) or phosphoric acids (H3PO4). The large production of sulfuric acid is primarily motivated by this application.In the nitrophosphate process or Odda process (invented in 1927), phosphate rock with up to a 20% phosphorus (P) content is dissolved with nitric acid (HNO3) to produce a mixture of phosphoric acid (H3PO4) and calcium nitrate (Ca(NO3)2). This mixture can be combined with a potassium fertilizer to produce a compound fertilizer with the three macronutrients N, P and K in easily dissolved form.</p>
-		<h5><a href="/detail2.html">READ MORE <i class="fa fa-angle-double-right"></i></a></h5>
-		
-	   </div>
-	  </div>
-	 </div><br><br>
-	 <div class="blog_1 clearfix">
-	  <div class="col-sm-4 clearfix">
-	   <div class="blog_home1i clearfix">
-	    <div class="grid clearfix">
-		  <figure class="effect-jazz">
-			<a href="/detail3.html"><img src="pottasium ferilizer.jpg" height="270" width="400" class="iw mgt" alt="img25"></a>
-		  </figure>
-	  </div>
-		<div class="blog_home1il clearfix">
-          <h6 class="mgt"><span class="date">April</span> <span class="year">2021</span></h6>	
-		</div>
-	  </div>
-	  </div>
-	  <div class="col-sm-8 clearfix">
-	   <div class="blog_1r">
-	    <h3 class="mgt"><a href="/detail3.html">Potassium Fertilizers</a></h3>
-
-		<p>Potash is a mixture of potassium minerals used to make potassium (chemical symbol: K) fertilizers. Potash is soluble in water, so the main effort in producing this nutrient from the ore involves some purification steps; e.g., to remove sodium chloride (NaCl) (common salt). Sometimes potash is referred to as K2O, as a matter of convenience to those describing the potassium content. In fact, potash fertilizers are usually potassium chloride, potassium sulfate, potassium carbonate, or potassium nitrate.</p>
-		<h5><a href="/detail3.html">READ MORE <i class="fa fa-angle-double-right"></i></a></h5>
-		
-	   </div>
-	  </div>
-	 </div><br><br><br>
-	 <div class="blog_1 clearfix">
-	  <div class="col-sm-4 clearfix">
-	   <div class="blog_home1i clearfix">
-	    <div class="grid clearfix">
-		  <figure class="effect-jazz"><br><br>
-			<a href="/detail4.html"><img src="orgyanic gertilizer.webp" height="270" width="400" class="iw mgt" alt="img25"></a>
-		  </figure>
-	  </div>
-		<div class="blog_home1il clearfix">
-          <h6 class="mgt"><span class="date">April</span> <span class="year">2021</span></h6>	
-		</div>
-	  </div>
-	  </div>
-	  <div class="col-sm-8 clearfix">
-	   <div class="blog_1r">
-	    <h3 class="mgt"><a href="/detail4.html">Organic Fertilizers</a></h3>
-		<p>“Organic fertilizers" can describe those fertilizers with an organic – biologic – origin—that is, fertilizers derived from living or formerly living materials. Organic fertilizers can also describe commercially available and frequently packaged products that strive to follow the expectations and restrictions adopted by “organic agriculture” and ”environmentally friendly" gardening – related systems of food and plant production that significantly limit or strictly avoid the use of synthetic fertilizers and pesticides. The "organic fertilizer" products typically contain both some organic materials as well as acceptable additives such as nutritive rock powders, ground sea shells (crab, oyster, etc.), other prepared products such as seed meal or kelp, and cultivated microorganisms and derivatives.</p>
-		<h5><a href="/detail4.html">READ MORE <i class="fa fa-angle-double-right"></i></a></h5>
-
-	   </div>
-	  </div>
-	 </div>
-	</div>
-  </div>
- </div>
-</section>
+    <script src="./fertilizer.js"></script>
+</body>
+</html>
 

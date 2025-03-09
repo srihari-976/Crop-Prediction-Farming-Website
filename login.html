@@ -1,350 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,600&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-:root{
-    font-size: 62.5%;
-}
-
-body{
-    font-family: 'Poppins', sans-serif;
-    /* background: #eef0f4; */
-    background-image: url(login\ background.jpg);
-    background-size:cover;
-    background-position:center;
-}
-
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-}
-
-.cards .card{
-    position: relative;
-    width: 650px;
-    height: 650px;
-    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
-    25px 35px 20px rgba(0, 0, 0, 0.05),
-    25px 30px 30px rgba(0, 0, 0, 0.05),
-    inset -10px -10px 15px rgba(233, 249, 255, 0.9),
-    10px 10px 20px rgba(237, 248, 250, 0.9);
-    transition: all 0.5s ease;  
-}
-
-.cards .card:hover{
-    border-radius: 51% 49% 65% 35% / 65% 61% 39% 35% ;
-}
-
-.cards .card::before{
-    position: absolute;
-    content: '';
-    background: transparent;
-    width: 30px;
-    height: 30px;
-    top: 15%;
-    left: 25%;
-    box-shadow: rgb(204, 219, 232) 2px 2px 2px 0px inset,
-    rgba(255, 255, 255, 0.5) -2px -2px 3px 1px inset,
-    rgb(204, 219, 232) 2px 2px 2px 0px;
-    border-radius: 50%;
-    opacity: 0.9;
-}
-
-.cards .card::after{
-    position: absolute;
-    content: '';
-    background: transparent;
-    width: 15px;
-    height: 15px;
-    top: 25%;
-    left: 32%;
-    box-shadow: rgb(204, 219, 232) 2px 2px 2px 0px inset,
-    rgba(255, 255, 255, 0.5) -2px -2px 3px 1px inset,
-    rgb(204, 219, 232) 2px 2px 2px 0px;
-    border-radius: 50%;
-    opacity: 0.8;
-}
-
-
-.card:nth-child(1){
-    border-radius: 53% 47% 37% 63% / 41% 41% 59% 59%  ;
-}
-
-
-.cards .card .card__content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    gap: 10px;
-}
-
-.cards .card-1 .card__content button{
-    padding: 0.5rem 0.8rem;
-    text-align: center;
-    font-size: 1.4rem;
-    border: 1px solid aqua;
-    color: #ffecd1;
-    cursor: pointer;
-    border-radius: 15px;
-    transition: all 0.4s ease;
-}
-
-button:hover{
-    scale: 105%;
-}
-
-.login-box {
-    position: relative;
-    width: 400px;
-    height: 450px;
-    background: transparent;
-    border-radius: 15px;
-    box-shadow: inset 20px 20px 20px rgb(167, 243, 255),
-    25px 35px 20px rgba(0, 0, 0, 0.05),
-    25px 30px 30px rgba(0, 0, 0, 0.05),
-    inset -10px -10px 15px rgba(176, 234, 255, 0.9),
-    10px 10px 20px rgba(177, 243, 255, 0.9);
-    transition: all 0.5s ease; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(10px);
-  }
-  h2 {
-    font-size:2.5em;
-    color:#111;
-    text-align:center;
-  }
-  .input-box {
-    position:relative;
-    width:310px;
-    margin:30px 0;
-    border-bottom:1px solid black;
-  }
-  .input-box label {
-    position:absolute;
-    top:50%;
-    left:5px;
-    transform:translateY(-50%);
-    font-size:1.5em;
-    color:#111;
-    pointer-events:none;
-    transition:.5s;
-  }
-  .input-box input:focus  ~ label,
-  .input-box input:valid  ~ label {
-    top:-5px;
-  }
-  .input-box input {
-    width:100%;
-    height:50px;
-    background:transparent;
-    border:none;
-    outline:none;
-    font-size:1.5em;
-    color:#000;
-    padding:0 35px 0 5px;
-  }
-  .input-box .icon {
-    position:absolute;
-    right:8px;
-    top:50%;
-    color: #111;
-    transform: translateY(-50%);
-  }
-  .remember-forgot {
-    margin:-15px 0 15px;
-    font-size:1.2em;
-    color:#111;
-    display:flex;
-    justify-content:space-between;
-  }
-  .remember-forgot label input {
-    margin-right:3px;
-  }
-  .remember-forgot a {
-    color:var(--black-color);
-    text-decoration:none;
-  }
-  .remember-forgot a:hover {
-    text-decoration:underline;
-  }
-  button {
-    width:100%;
-    height:40px;
-    background-color:black;
-    border:1px dashed black;
-    border-radius:40px;
-    cursor:pointer;
-    font-size:1.5em;
-    color:#66fcf1;
-    font-weight:500;
-  }
-  .register-link {
-    font-size:1.2em;
-    color:var(--black-color);
-    text-align:center;
-    margin:25px 0 10px;
-  }
-  .register-link p a {
-    color:var(--black-color);
-    text-decoration:none;
-    font-weight:600;
-  }
-  .register-link p a:hover {
-    text-decoration:underline;
-  }
-  @media (max-width:500px) {
-    .login-box {
-      width:100%;
-      height:100vh;
-      border:none;
-      border-radius:0;
-    }
-    .input-box {
-      width:290px;
-    }
-  }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style1.css">
-    <title>LOG IN</title>
+    <title>Login - KRUSHI</title>
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1 id="main1">KRUSHI</h1>
+            </div>
+            <div class="menu">
+                <a href="./index.html">Home</a>
+                <a href="./croppredict.html">Crop Prediction</a>
+                <a href="./weatherhtml.html">Weather</a>
+                <a href="./fertilizer.html">Fertilizers</a>
+                <a href="./govt.html">Government Schemes</a>
+                <a href="./login.html">Login</a>
+            </div>
+        </nav>
+    </header>
 
-    <div class="container">
-
-        <div class="cards">
-            <div class="card card-1">
-                <div class="card__content">
-                    <div class="login-box">
-                        <form action="">
-                          <h2>Login</h2>
-
-                          <div class="input-box">
-                            <span class="icon">
-                              <ion-icon name="mail"></ion-icon>
-                            </span>
-                            <input type="email" required>
-                            <label>Email</label>
-                          </div>
-
-                          <div class="input-box">
-                            <span class="icon">
-                              <ion-icon name="lock-closed"></ion-icon>
-                            </span>
-                            <input type="password" required>
-                            <label>Password</label>
-                          </div>
-
-                          <div class="remember-forgot">
-                            <label><input type="checkbox"> Remember me</label>
-                            <a href="#">Forgot Password?</a>
-                          </div>
-
-                          <button type="submit"><a href="/input.html">Login</a></button>
-
-                          <div class="register-link">
-                            <p>Don't have an account? <a href="/Register.html">Register</a></p>
-                          </div>
-                        </form>
-                      </div>
+    <main>
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="register">Register</button>
                 </div>
-            </div> 
 
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <h2>Welcome Back</h2>
+                    <p>Login to access your account</p>
+
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="loginEmail" name="email" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="loginPassword" name="password" class="form-control" required>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" name="remember">
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="button">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </button>
+
+                    <div class="social-login">
+                        <p>Or login with</p>
+                        <div class="social-buttons">
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" class="auth-form">
+                    <h2>Create Account</h2>
+                    <p>Join us to start your farming journey</p>
+
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="registerName" name="name" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="registerEmail" name="email" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPhone">Phone Number</label>
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="registerPhone" name="phone" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="registerPassword" name="password" class="form-control" required>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="terms">
+                            <input type="checkbox" name="terms" required>
+                            I agree to the Terms & Conditions
+                        </label>
+                    </div>
+
+                    <button type="submit" class="button">
+                        <i class="fas fa-user-plus"></i>
+                        Register
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
-    <!-- this is bar-->
-    <!DOCTYPE html>
-<!-- Coding By Web Addicted -->
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glassmorphism Sidebar HTML and CSS</title>
-    <!-- Linking Google font link for icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="/style2.css">
-  </head>
-  <body>
-    <aside class="sidebar">
-      <div class="logo">
-        <img src="krushi logo.webp" alt="logo">
-        <h2>KRUSHI</h2>
-      </div>
-      <ul class="links">
-        <h4>Main Menu</h4>
-        <li>
-          <span class="material-symbols-outlined">dashboard</span>
-          <a href="#">Dashboard</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">show_chart</span>
-          <a href="#">Revenue</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">flag</span>
-          <a href="#">Reports</a>
-        </li>
-        <hr>
-        <h4>Advanced</h4>
-        <li>
-          <span class="material-symbols-outlined">person</span>
-          <a href="#">Designer</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">group</span>
-          <a href="#">Developer </a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">ambient_screen</span>
-          <a href="#">Magic Build</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">pacemaker</span>
-          <a href="#">Theme Maker</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">monitoring</span>
-          <a href="#">Analytic</a>
-        </li>
-        <hr>
-        <h4>Account</h4>
-        <li>
-          <span class="material-symbols-outlined">bar_chart</span>
-          <a href="#">Overview</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">mail</span>
-          <a href="#">Message</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">settings</span>
-          <a href="#">Settings</a>
-        </li>
-        <li class="logout-link">
-          <span class="material-symbols-outlined">logout</span>
-          <a href="#">Logout</a>
-        </li>
-      </ul>
-    </aside>
-  </body>
-</html>
+    </main>
 
-  </body>
+    <script src="./login.js"></script>
+</body>
 </html>

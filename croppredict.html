@@ -3,51 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crop Prediction Project</title>
-    <link rel="stylesheet" type="text/css" href="/crop.css">
-	<link
-		href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&display=swap"
-		rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
+    <title>Crop Prediction - KRUSHI</title>
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./croppredict.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Crop Prediction Project</h1>
-        <div class="filters">
-            <label for="soil-select">Select Soil Type:</label>
-            <select id="soil-select">
-                <option value="Red">Red Soil</option>
-                <option value="Black">Black Soil</option>
-                <option value="Laterite">Laterite Soil</option>
-                <option value="Alluvial">Alluvial Soil</option>
-                <!-- Add more soil type options as needed -->
-            </select>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1 id="main1">KRUSHI</h1>
+            </div>
+            <div class="menu">
+                <a href="./index.html">Home</a>
+                <a href="./croppredict.html">Crop Prediction</a>
+                <a href="./weatherhtml.html">Weather</a>
+                <a href="./fertilizer.html">Fertilizers</a>
+                <a href="./govt.html">Government Schemes</a>
+                <a href="./login.html">Login</a>
+            </div>
+        </nav>
+    </header>
 
-            <label for="season-select">Select Season:</label>
-            <select id="season-select">
-                <option value="Rainy">Rainy Season</option>
-                <option value="Summer">Summer Season</option>
-                <option value="Spring">Spring Season</option>
-                <option value="Winter">Winter Season</option>
-                <!-- Add more season options as needed -->
-            </select>
+    <main>
+        <div class="container">
+            <section class="prediction-intro card">
+                <h2>Crop Prediction</h2>
+                <p>Get accurate crop recommendations based on your soil conditions and environmental factors.</p>
+            </section>
+
+            <section class="prediction-form card">
+                <form id="cropPredictionForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nitrogen">Nitrogen (N)</label>
+                            <input type="number" id="nitrogen" name="nitrogen" class="form-control" required min="0" max="140" step="0.01">
+                            <small>Amount of Nitrogen in soil (0-140)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phosphorus">Phosphorus (P)</label>
+                            <input type="number" id="phosphorus" name="phosphorus" class="form-control" required min="0" max="145" step="0.01">
+                            <small>Amount of Phosphorus in soil (0-145)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="potassium">Potassium (K)</label>
+                            <input type="number" id="potassium" name="potassium" class="form-control" required min="0" max="205" step="0.01">
+                            <small>Amount of Potassium in soil (0-205)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="temperature">Temperature</label>
+                            <input type="number" id="temperature" name="temperature" class="form-control" required min="0" max="50" step="0.01">
+                            <small>Temperature in Celsius (0-50°C)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="humidity">Humidity</label>
+                            <input type="number" id="humidity" name="humidity" class="form-control" required min="0" max="100" step="0.01">
+                            <small>Relative humidity in % (0-100)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ph">pH Level</label>
+                            <input type="number" id="ph" name="ph" class="form-control" required min="0" max="14" step="0.01">
+                            <small>pH value of soil (0-14)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rainfall">Rainfall</label>
+                            <input type="number" id="rainfall" name="rainfall" class="form-control" required min="0" max="300" step="0.01">
+                            <small>Rainfall in mm (0-300)</small>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="button">
+                            <i class="fas fa-seedling"></i> Predict Crop
+                        </button>
+                        <button type="reset" class="button button-outline">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="prediction-result card" style="display: none;">
+                <h3>Prediction Result</h3>
+                <div class="result-content">
+                    <div class="recommended-crop">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Recommended Crop</h4>
+                        <p id="cropResult">Loading...</p>
+                    </div>
+                    <div class="crop-details">
+                        <h4>Crop Details</h4>
+                        <p id="cropDetails">Additional information about the recommended crop will appear here.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tips card">
+                <h3>Tips for Accurate Prediction</h3>
+                <div class="tips-grid">
+                    <div class="tip">
+                        <i class="fas fa-vial"></i>
+                        <h4>Soil Testing</h4>
+                        <p>Get your soil tested from a certified lab for accurate N, P, K values.</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h4>Temperature & Humidity</h4>
+                        <p>Use local weather data or a weather station for accurate measurements.</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-tint"></i>
+                        <h4>Rainfall Data</h4>
+                        <p>Consider historical rainfall data for your region.</p>
+                    </div>
+                </div>
+            </section>
         </div>
-        <input type="text" id="search-bar" placeholder="Search Crop">
-            <button id="search-btn">Search</button>
-        </div>
-        <div class="crop-gallery">
-            <!-- Crop photos will be displayed here -->
-        </div>
-    </div>
-    <script src="/crop.js"></script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en'
-            }, 'google_translate_element');
-        }
-    </script>
+    </main>
+
+    <script src="./croppredict.js"></script>
 </body>
 </html>

@@ -12,7 +12,11 @@ inputField = inputPart.querySelector("input");
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const API_KEY ='208912e57d4dc5b2cbd3060ef955416a';
+const API_KEY = ''; // Add your OpenWeatherMap API key here
+const weatherForm = document.querySelector('.weather-search form');
+const cityInput = document.querySelector('#city-input');
+const weatherInfo = document.querySelector('.weather-info');
+const forecastContainer = document.querySelector('.forecast-container');
 
 inputField.addEventListener("keyup", e =>{
     // if user pressed enter btn and input value is not empty
@@ -26,7 +30,7 @@ function fetchData(city){
     infoTxt.classList.add("pending");
     // getting api response and returning it with parsing into js obj and in another 
     // then function calling weatherDetails function with passing api result as an argument
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=49cc8c821cd2aff9af04c9f98c36eb74`).then(res => res.json()).then(data => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data => {
 
         nextLevel(data);
        // showWeatherData(data);
@@ -135,3 +139,134 @@ function showWeatherData (data){
 
     weatherForecastEl.innerHTML = otherDayForcast;
 }
+
+weatherForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const city = cityInput.value.trim();
+    if (!city) return;
+
+    try {
+        const weatherData = await getWeatherData(city);
+        const forecastData = await getForecastData(city);
+        displayWeatherInfo(weatherData);
+        displayForecast(forecastData);
+        updateFarmingTips(weatherData.weather[0].main);
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        alert('Could not fetch weather data. Please try again.');
+    }
+});
+
+async function getWeatherData(city) {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`);
+    if (!response.ok) throw new Error('Weather data not found');
+    return response.json();
+}
+
+async function getForecastData(city) {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`);
+    if (!response.ok) throw new Error('Forecast data not found');
+    return response.json();
+}
+
+function displayWeatherInfo(data) {
+    const date = new Date().toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+
+    weatherInfo.innerHTML = `
+        <div class="weather-main">
+            <div class="city-name">
+                <h2>${data.name}, ${data.sys.country}</h2>
+                <p>${date}</p>
+            </div>
+            <div class="weather-details">
+                <div class="temp">
+                    ${Math.round(data.main.temp)}°C
+                    <div class="weather">
+                        <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="${data.weather[0].description}">
+                        <span>${data.weather[0].description}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weather-details-grid">
+            <div class="detail-item">
+                <i class="fas fa-tint"></i>
+                <span>Humidity</span>
+                <span>${data.main.humidity}%</span>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-wind"></i>
+                <span>Wind Speed</span>
+                <span>${data.wind.speed} m/s</span>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-cloud"></i>
+                <span>Cloudiness</span>
+                <span>${data.clouds.all}%</span>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-compress-alt"></i>
+                <span>Pressure</span>
+                <span>${data.main.pressure} hPa</span>
+            </div>
+        </div>
+    `;
+}
+
+function displayForecast(data) {
+    const dailyForecasts = data.list.filter(item => item.dt_txt.includes('12:00:00'));
+    forecastContainer.innerHTML = dailyForecasts.slice(0, 5).map(day => `
+        <div class="forecast-item">
+            <div class="date">${new Date(day.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' })}</div>
+            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="${day.weather[0].description}">
+            <div class="temp">${Math.round(day.main.temp)}°C</div>
+            <div class="description">${day.weather[0].description}</div>
+        </div>
+    `).join('');
+}
+
+function updateFarmingTips(weatherCondition) {
+    const tipsContainer = document.querySelector('.tips-container');
+    const tips = {
+        Rain: {
+            icon: 'fa-cloud-rain',
+            title: 'Rainy Weather Tips',
+            content: 'Protect crops from excess water. Check drainage systems. Consider indoor activities.'
+        },
+        Clear: {
+            icon: 'fa-sun',
+            title: 'Sunny Weather Tips',
+            content: 'Ensure adequate irrigation. Protect plants from intense sunlight. Best time for harvesting.'
+        },
+        Clouds: {
+            icon: 'fa-cloud',
+            title: 'Cloudy Weather Tips',
+            content: 'Good conditions for planting. Monitor humidity levels. Perfect for outdoor work.'
+        },
+        default: {
+            icon: 'fa-seedling',
+            title: 'General Farming Tips',
+            content: 'Monitor crop health. Check soil moisture. Plan activities according to forecast.'
+        }
+    };
+
+    const tip = tips[weatherCondition] || tips.default;
+    tipsContainer.innerHTML = `
+        <div class="tip">
+            <i class="fas ${tip.icon}"></i>
+            <h3>${tip.title}</h3>
+            <p>${tip.content}</p>
+        </div>
+    `;
+}
+
+// Initialize with a default city
+document.addEventListener('DOMContentLoaded', () => {
+    cityInput.value = 'Mumbai';
+    weatherForm.dispatchEvent(new Event('submit'));
+});
